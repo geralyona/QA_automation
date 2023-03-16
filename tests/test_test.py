@@ -1,7 +1,7 @@
-def test_test():
-    assert 1 == 1
 
-def test_search_repo():
-    repo = 1#github_api_client_.search_repo('jbhb')
 
-    assert repo == "hbhhvjv"
+def test_check_age_43(user):
+    assert user.age == 43
+
+def test_check_age_50(user):
+    assert user.age == 43
