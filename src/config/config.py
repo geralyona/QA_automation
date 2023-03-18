@@ -2,6 +2,7 @@ import os
 
 from src.config.providers.config_from_env_provider import ConfigFromEnvProvider
 from src.config.providers.config_from_json_provider import ConfigFromSimpleJsonProvider
+from src.config.providers.config_aws_provider import ConfigFromAWSProvider
 
 
 class Config:
@@ -19,11 +20,13 @@ class Config:
         # Hierarhy of providers
         self.providers = [
             ConfigFromSimpleJsonProvider(json_path),
+            ConfigFromAWSProvider(),
             ConfigFromEnvProvider(),
             ]
 
         self.register("BASE_URL_API")
         self.register("BASE_URL_UI")
+        self.register("BASE_URL")
 
     def register(self, name):
         """

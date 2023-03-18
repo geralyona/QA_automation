@@ -1,7 +1,7 @@
 import os
 from src.config.providers.base_config import BaseConfigKeyProvider
 
-class ConfigFromEnvProvider(BaseConfigKeyProvider):
+class ConfigFromAWSProvider(BaseConfigKeyProvider):
     """
     Allows configuration through the env variables.
     """

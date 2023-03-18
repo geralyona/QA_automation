@@ -1,4 +1,5 @@
 {
     "BASE_URL_API": "QA_EXAMPLE2",
-    "BASE_URL_UI": "QA_EXAMPLE2"
+    "BASE_URL_UI": "QA_EXAMPLE2",
+    "BASE_URL": "QA_EXAMPLE2"
 }

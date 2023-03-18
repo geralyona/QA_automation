@@ -1,8 +1,6 @@
 import json
 from src.config.providers.base_config import BaseConfigKeyProvider
 
-
-# BaseConfigKeyProvider usage is optional
 class ConfigFromSimpleJsonProvider(BaseConfigKeyProvider):
     """
     Allows configuration through the JSON file
