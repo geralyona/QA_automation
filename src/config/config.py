@@ -27,6 +27,9 @@ class Config:
         self.register("BASE_URL_API")
         self.register("BASE_URL_UI")
         self.register("BASE_URL")
+        self.register("BASE_URL_UI")
+        self.register("USERNAME")
+        self.register("PASSWORD")
 
     def register(self, name):
         """
@@ -58,6 +61,8 @@ class Config:
 
         return self.conf_dict.get(name)
 
+    def get_url_api(self):
+        return self.get("BASE_URL_API")
 
 # python way singleton
 config = Config()

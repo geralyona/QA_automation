@@ -1,4 +1,5 @@
 import json
+import os
 from src.config.providers.base_config import BaseConfigKeyProvider
 
 class ConfigFromSimpleJsonProvider(BaseConfigKeyProvider):
@@ -9,6 +10,16 @@ class ConfigFromSimpleJsonProvider(BaseConfigKeyProvider):
         """
         :param config_path: path to the json with configuration
         """
+        local = str.replace(config_path, "/","\\")
+        print(local) 
+        real_path = os.getcwd() + "\\" + local
+        real_path = config_path
+        if(os.path.isfile(real_path) == False):
+            print(real_path)
+            print("Path at terminal when executing this file")
+            print(os.getcwd() + "\n")
+            return FileNotFoundError(real_path)
+
         with open(config_path) as json_file:
             self._config_data = json.load(json_file)
 

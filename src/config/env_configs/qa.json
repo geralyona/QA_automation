@@ -1,5 +1,7 @@
 {
-    "BASE_URL_API": "QA_EXAMPLE2",
+    "BASE_URL_API": "https://api.github.com",
     "BASE_URL_UI": "QA_EXAMPLE2",
-    "BASE_URL": "QA_EXAMPLE2"
+    "BASE_URL": "QA_EXAMPLE2",
+    "USERNAME": "kjsdnfkjndsf",
+    "PASSWORD": "kjsndkjfnkjsnfk"
 }
