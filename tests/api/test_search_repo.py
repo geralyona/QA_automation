@@ -1,6 +1,6 @@
 import pytest
 import requests
-from src.config.config import config
+from src.config.config import CONFIG
 from src.libraries.helpers import *
 
 search_repositories = "/search/repositories"

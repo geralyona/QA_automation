@@ -1,7 +1,7 @@
-from src.config.config import config
+from src.config.config import CONFIG
 
 def do_config_value_exist(name):
-    value = config.get(name)
+    value = CONFIG.get(name)
     print(name+ ": " + value)
     return value != ""
 

@@ -72,4 +72,4 @@ class Config:
         return self.get("BASE_URL_API")
 
 # python way singleton
-config = Config()
+CONFIG = Config()

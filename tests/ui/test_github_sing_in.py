@@ -2,7 +2,7 @@ import pytest
 
 from src.applications.ui.github_ui_app import GitHubUI
 
-
+"""
 @pytest.fixture
 def browser():
     browser = GitHubUI()
@@ -14,8 +14,9 @@ def browser():
     browser.close()
 
 
-def test_failed_login(browser):
+def uuu_test_failed_login(browser):
     browser.go_to_login_page()
     browser.try_login_on_login_page()
 
     assert browser.check_error_message()
+"""

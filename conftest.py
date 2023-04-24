@@ -1,5 +1,5 @@
 import pytest
-from src.config.config import config
+from src.config.config import CONFIG
 from src.applications.models.user import User
 from src.applications.api.github_api_client import GitHubApiClient
 from src.applications.ui.github_ui_app import GitHubUI
@@ -31,11 +31,13 @@ def github_api_client():
 
 @pytest.fixture
 def github_ui_app():
-    browser = CONFIG.get("BROWSER")
-    driver = BrowsersProvider.get_driver(browser)
+
+    # browser = CONFIG.get("BROWSER")
+    # driver = BrowsersProvider.get_driver(browser)
 
 
-    ui_app = GitHubUI(driver)
+    # ui_app = GitHubUI(driver)
+    ui_app = GitHubUI()
 
     yield ui_app
 

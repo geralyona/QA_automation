@@ -1,5 +1,5 @@
 import requests
-from src.config.config import config
+from src.config.config import CONFIG
 
 class GitHubApiClient:
     __search_repositories = "/search/repositories"
@@ -11,17 +11,18 @@ class GitHubApiClient:
         self.token = None
 
     def __form_url(self, url):
-        return config.get("BASE_URL_API") + url
+        return CONFIG.get("BASE_URL_API") + url
     
     def __search_repo_url(self):
         return self.__form_url(self.__search_repositories)
     
     def login(self, username, password):
+        self.__username=username
         print(f"Do login with {username}:{password}")
         self.token = "sdkfjbkjsdf"
 
-    def logout(self, username):
-        print(f"Do logout for {username}")
+    def logout(self):
+        print(f"Do logout for {self.__username}")
 
      #{config.get_url_api()}{search_repositories}?q=Q
     def get_search_repo_without_params(self):    
