@@ -2,6 +2,8 @@ import pytest
 from src.config.config import config
 from src.applications.models.user import User
 from src.applications.api.github_api_client import GitHubApiClient
+from src.applications.ui.github_ui_app import GitHubUI
+from src.providers.service.browsers.browsers_provider import BrowsersProvider
 
 @pytest.fixture(scope="session")
 def user():

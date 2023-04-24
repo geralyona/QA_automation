@@ -20,12 +20,11 @@ class Config:
 
         # Hierarhy of providers
         self.providers = [
-             ConfigFromSimpleJsonProvider(json_path),
+            ConfigFromSimpleJsonProvider(json_path),
             ConfigFromEnvProvider(),
             ConfigFromDefaultsProvider({
                 "DEBUG_MODE": True,
                 "BROWSER": 'chrome',
-                "UI_TIMEOUTS": 30000,
                 "UI_TIMEOUTS": 30,
             })
             ]

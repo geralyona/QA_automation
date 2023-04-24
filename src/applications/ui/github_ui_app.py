@@ -3,11 +3,9 @@ from src.config.config import CONFIG
 from src.applications.ui.page_objects.login_page import LoginPage
 
 
-class GitHubUI:
 class GitHubUI(BaseAPP):
 
     def __init__(self, driver) -> None:
-        self.driver = driver
         super().__init__(driver)
         self.LoginPage = LoginPage(self)
         self.SingupPage = None
