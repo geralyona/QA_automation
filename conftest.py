@@ -3,23 +3,38 @@ from src.config.config import config
 from src.applications.models.user import User
 from src.applications.api.github_api_client import GitHubApiClient
 
-
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def user():
     # before test
-    user2 = User(42)
-    # pass user
-    yield user2
-    #after test
-    #print('Remove user')
-    user2.remove()
+    print("Create user")
+    user = User(42)
 
-@pytest.fixture()
+    # pass user object to test
+    yield user
+
+    # after test
+    print("Remove user")
+    user.remove()
+
+
+@pytest.fixture
 def github_api_client():
     github_api_client = GitHubApiClient()
-    username = config.get("USERNAME")
-    github_api_client.login(username, config.get("PASSWORD"))
+    github_api_client.login(CONFIG.get("USERNAME"), CONFIG.get("PASSWORD"))
 
     yield github_api_client
 
-    github_api_client.logout(username)
+    github_api_client.logout()
+
+
+@pytest.fixture
+def github_ui_app():
+    browser = CONFIG.get("BROWSER")
+    driver = BrowsersProvider.get_driver(browser)
+
+
+    ui_app = GitHubUI(driver)
+
+    yield ui_app
+
+    ui_app.quit()

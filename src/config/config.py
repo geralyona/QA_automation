@@ -2,7 +2,8 @@ import os
 
 from src.config.providers.config_from_env_provider import ConfigFromEnvProvider
 from src.config.providers.config_from_json_provider import ConfigFromSimpleJsonProvider
-from src.config.providers.config_aws_provider import ConfigFromAWSProvider
+from src.config.providers.config_from_defults_provider import ConfigFromDefaultsProvider
+
 
 
 class Config:
@@ -19,17 +20,24 @@ class Config:
 
         # Hierarhy of providers
         self.providers = [
-            ConfigFromSimpleJsonProvider(json_path),
-            ConfigFromAWSProvider(),
+             ConfigFromSimpleJsonProvider(json_path),
             ConfigFromEnvProvider(),
+            ConfigFromDefaultsProvider({
+                "DEBUG_MODE": True,
+                "BROWSER": 'chrome',
+                "UI_TIMEOUTS": 30000,
+                "UI_TIMEOUTS": 30,
+            })
             ]
 
         self.register("BASE_URL_API")
         self.register("BASE_URL_UI")
         self.register("BASE_URL")
-        self.register("BASE_URL_UI")
         self.register("USERNAME")
         self.register("PASSWORD")
+        self.register("BROWSER")
+        self.register("DEBUG_MODE")
+        self.register("UI_TIMEOUTS")
 
     def register(self, name):
         """
