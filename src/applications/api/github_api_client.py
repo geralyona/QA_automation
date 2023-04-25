@@ -3,10 +3,7 @@ from src.config.config import CONFIG
 
 class GitHubApiClient:
     __search_repositories = "/search/repositories"
-    __validation_failed = "Validation Failed"
-    __message_tag = "message"
-    __total_count_tag = "total_count"
-
+    
     def __init__(self) -> None:
         self.token = None
 
@@ -37,12 +34,11 @@ class GitHubApiClient:
         return r.json() 
 
     #{config.get_url_api()}{search_repositories}?q=Q
-    def search_repo(self, repo_name):        
+    def search_repo(self, repo_name):    
         r = requests.get(
             url=self.__search_repo_url(),
             params={'q': repo_name},
             # headers=f"Authorization: Bearer {self.token}"
             )
-
         return r.json()    
     
