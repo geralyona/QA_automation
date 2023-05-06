@@ -6,7 +6,8 @@ pipeline {
     stages {
         stage('SCM Checkout') {
             steps{
-            git 'https://github.com/geralyona/QA_automation.git'
+			checkout([$class: 'GitSCM', branches: [[name: '*/main']],
+			userRemoteConfigs: [[url: 'https://github.com/geralyona/QA_automation.git']]])
             }
         }
 
